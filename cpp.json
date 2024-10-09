@@ -44,7 +44,8 @@
 		  "    $0",
 		  "}",
 		  "",
-		  "// Function Implementation"
+		  "// Function Implementation",
+		  ""
 		],
 		"description": "cp template"
 	  },
@@ -2325,6 +2326,49 @@
 		"    }"
 	],
 	"description": "prefix sum 2d"
+	},
+	"solve": {
+	"prefix": "solve",
+	"body": [
+		"#include <bits/stdc++.h>",
+		"#include <ext/pb_ds/assoc_container.hpp>",
+		"#include <ext/pb_ds/tree_policy.hpp>",
+		"",
+		"using namespace __gnu_pbds;",
+		"template <typename T>",
+		"using ordered_set = tree<T, null_type, std::less<T>, rb_tree_tag, tree_order_statistics_node_update>;",
+		"",
+		"using namespace std;",
+		"",
+		"typedef long long ll;",
+		"typedef long double ld;",
+		"typedef pair<int, int> ii;",
+		"",
+		"// Global Variable Declaration",
+		"",
+		"",
+		"",
+		"// Function Declaration",
+		"",
+		"void solve(int test_id) {",
+		"    $0",
+		"}",
+		"",
+		"int main(void) {",
+		"    ios_base::sync_with_stdio(0); cin.tie(0);",
+		"    cout << fixed;",
+		"",
+		"    int tests;",
+		"    cin >> tests; ",
+		"    for (int test = 0; test < tests; test++) {",
+		"        solve(test);",
+		"    }",
+		"}",
+		"",
+		"// Function Implementation",
+		""
+	],
+	"description": "solve"
 	},
 	"bigint": {
 	"prefix": "bigint",
