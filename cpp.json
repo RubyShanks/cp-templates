@@ -2,7 +2,7 @@
 	// Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and 
 	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
-	// same ids are connected.
+	// same ids are connected.	
 	// Example:
 	// "Print to console": {
 	// 	"prefix": "log",
@@ -38,7 +38,8 @@
 		  "",
 		  "",
 		  "int main(void) {",
-		  "    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);",
+		  "    ios_base::sync_with_stdio(0); cin.tie(0);",
+		  "    cout << fixed;",
 		  "",
 		  "    $0",
 		  "}",
@@ -82,22 +83,6 @@
 		  "}"
 		],
 		"description": "kmp pattern searching"
-	  },
-	  "dx": {
-		"prefix": "dx",
-		"body": [
-		  "int dx[] = {0, 1, 0, -1};",
-		  "int dy[] = {1, 0, -1, 0};",
-		  "for (int di = 0; di < 4; di++) {",
-		  "    int x = j + dx[di];",
-		  "    int y = k + dy[di];",
-		  "    if (x < 0 || x >= n || y < 0 || y >= n) {",
-		  "        continue;",
-		  "    }",
-		  "    $0",
-		  "}"
-		],
-		"description": "straight line neighbors"
 	  },
 	"Graph": {
 	"prefix": "Graph",
@@ -506,27 +491,6 @@
 	],
 	"description": "dsu"
 	},
-	  "all neighbors": {
-		"prefix": "dxx",
-		"body": [
-		  "int dx[] = {-1, 0, 1};",
-		  "int dy[] = {-1, 0, 1};",
-		  "for (int dxx = 0; dxx < 3; dxx++) {",
-		  "    for (int dyy = 0; dyy < 3; dyy++) {",
-		  "        int x = j + dx[dxx];",
-		  "        int y = k + dy[dyy];",
-		  "        if (x < 0 || x >= n || y < 0 || y >= n) {",
-		  "            continue;",
-		  "        }",
-		  "        if (x == j && y == k) {",
-		  "            continue;",
-		  "        }",
-		  "        $0",
-		  "    }",
-		  "}"
-		],
-		"description": "all neighbors"
-	  },
 	  "loop": {
 		"prefix": "loop",
 		"body": [
@@ -600,19 +564,6 @@
 		],
 		"description": "upper bound"
 	  },
-	  "arr": {
-		"prefix": "arr",
-		"body": [
-		  "int n;",
-		  "cin >> n;",
-		  "vector<int> a(n);",
-		  "for (int j = 0; j < n; j++) {",
-		  "    cin >> a[j];",
-		  "}",
-		  "$0"
-		],
-		"description": "standard array input"
-	  },
 	  "vector<vector<int>>": {
 		"prefix": "vcc",
 		"body": [
@@ -634,27 +585,12 @@
 		],
 		"description": "return 0"
 	  },
-	  "string": {
-		"prefix": "ss",
-		"body": [
-		  "string s$0;"
-		],
-		"description": "string"
-	  },
 	  "temporary variable": {
 		"prefix": "tmp",
 		"body": [
 		  "$0int tmp;",
 		],
 		"description": "temporary variable"
-	  },
-	  "map": {
-		"prefix": "mp",
-		"body": [
-		  "map<$0int, int> mp;",
-		  ""
-		],
-		"description": "map"
 	  },
 	  "custom comparator function": {
 		"prefix": "comp",
@@ -703,13 +639,6 @@
 		],
 		"description": ""
 	  },
-	  "va": {
-		"prefix": "va",
-		"body": [
-		  "vector<int> a$0(n);"
-		],
-		"description": "vector<int> a(n)"
-	  },
 	  "vc": {
 		"prefix": "vc",
 		"body": [
@@ -717,15 +646,8 @@
 		],
 		"description": "vector<int>"
 	  },
-	  "2D vector": {
-		"prefix": "vaa",
-		"body": [
-		  "vector<vector<int>> a(n, vector<int> (n, 0));"
-		],
-		"description": "2D vector"
-	  },
 	  "while loop": {
-		"prefix": "ww",
+		"prefix": "while",
 		"body": [
 		  "while ($0) {",
 		  "    ",
@@ -891,103 +813,6 @@
 		  "}"
 		],
 		"description": "find all cycles"
-	  },
-	  "seg tree (elmt update)": {
-		"prefix": "segtree2",
-		"body": [
-		  "typedef struct Node {",
-		  "    int val, left, right;",
-		  "} Node;",
-		  "",
-		  "int st_def = 0, tree_type = 0;",
-		  "vector<Node> segtree;",
-		  "",
-		  "// Function Declaration",
-		  "",
-		  "void set_tree_type(int type) {",
-		  "    /* Usage: First call set_tree_type function to set tree type. ",
-		  "        Next, use segtree.assign(4*n, {st_def, -1, -1});",
-		  "        Next, give your array to build(n, arr) to construct segment tree",
-		  "        Now you can update or query any range you want",
-		  "        Note that update sets element at index ind to k ",
-		  "        Always call query at x = 1 to start at the top of tree for the entire range [0, n)",
-		  "        Note that l, r given to the functions query is 0 indexed ",
-		  "        Build is O(4n). Query and Update are O(logn) */",
-		  "    tree_type = type;",
-		  "    if (tree_type == 0) { // sum",
-		  "        st_def = 0;",
-		  "    } else if (tree_type == 1) { // min",
-		  "        st_def = 2e9;",
-		  "    }",
-		  "    else if (tree_type == 2) { // max",
-		  "        st_def = -2e9;",
-		  "    }",
-		  "}",
-		  "",
-		  "int ret_val(int type, int v1, int v2) {",
-		  "    int ans;",
-		  "    if (type == 0) {",
-		  "        ans = v1 + v2;",
-		  "    } else if (type == 1) {",
-		  "        ans = min(v1, v2);",
-		  "    } else if (type == 2) {",
-		  "        ans = max(v1, v2);",
-		  "    }",
-		  "    return ans;",
-		  "}",
-		  "",
-		  "// build max seg tree O(4n)",
-		  "void build(const int n, const vector<int> &a) {",
-		  "    int h = ceil(log2(n));",
-		  "    int t = 1 << h;",
-		  "    for (int i = 0; i < n; i++) {",
-		  "        segtree[t + i] = {a[i], i, i};",
-		  "    }",
-		  "    for (int i = h - 1; i >= 0; i--) {",
-		  "        t = 1 << i; // number of nodes on current level, also the index of first node on current level",
-		  "        for (int j = 0; j < t; j++) {",
-		  "            segtree[t + j].val = ret_val(tree_type, segtree[2 * (t + j)].val, segtree[2 * (t + j) + 1].val);",
-		  "            if (segtree[2 * (t + j)].left != -1) {",
-		  "                segtree[t + j].left = segtree[2 * (t + j)].left;",
-		  "            } else {",
-		  "                segtree[t + j].left = segtree[2 * (t + j) + 1].left;",
-		  "            }",
-		  "            if (segtree[2 * (t + j) + 1].right != -1) {",
-		  "                segtree[t + j].right = segtree[2 * (t + j) + 1].right;",
-		  "            } else {",
-		  "                segtree[t + j].right = segtree[2 * (t + j)].right;",
-		  "            }",
-		  "        }   ",
-		  "    }",
-		  "}",
-		  "",
-		  "// query max in range [l, r] O(logn)",
-		  "int query(int x, int l, int r) {",
-		  "    auto& [val, left, right] = segtree[x];",
-		  "    if (l > right || r < left) {",
-		  "        return st_def;",
-		  "    }",
-		  "    if (l <= left && right <= r) {",
-		  "        return val;",
-		  "    }",
-		  "    // It is not possible to reach here if x is a leaf node",
-		  "    return ret_val(tree_type, query(2 * x, l, r), query(2 * x + 1, l, r));",
-		  "}",
-		  "",
-		  "// update value at index ind to k O(logn)",
-		  "void update(const int n, int ind, int k) {",
-		  "    int h = ceil(log2(n));",
-		  "    int t = 1 << h; ",
-		  "    ind += t;",
-		  "    segtree[ind].val = k;",
-		  "    ind /= 2;",
-		  "    while (ind >= 1) {",
-		  "        segtree[ind].val = ret_val(tree_type, segtree[2 * ind].val, segtree[2 * ind + 1].val);",
-		  "        ind /= 2;",
-		  "    }",
-		  "}"
-		],
-		"description": "seg tree (elmt update)"
 	  },
 	  "generalized segment tree": {
 		"prefix": "segtree",
@@ -1290,7 +1115,7 @@
 		"description": "cout YES"
 	  },
 	  "iff": {
-		"prefix": "iff",
+		"prefix": "if",
 		"body": [
 		  "if ($0) {",
 		  "    ",
@@ -1332,7 +1157,7 @@
 	  "fast io": {
 		"prefix": "fast io",
 		"body": [
-		  "ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);",
+		  "ios_base::sync_with_stdio(0); cin.tie(0);",
 		  "$0"
 		],
 		"description": "fast io"
@@ -1381,26 +1206,12 @@
 	],
 	"description": "binary exponentiation"
 	},
-	  "decimal_precision":{
-		"prefix": "decimal_precision",
-		"body": [
-            "cout << std::fixed << std::setprecision($0);"
-		],
-		"description": ""
-	  },
 	  "cmod":{
 		"prefix": "cmod",
 		"body": [
 			"const int mod = 1e9 + 7;$0"
 		],
 		"description": ""
-	  },
-	  "nmod":{
-		"prefix": "nmod",
-		"body": [
-			"if ($0 < 0)  += mod;"
-		],
-		"description": "check for negative error of mod"
 	  },
 	  "2dp": {
 		"prefix": "2dp",
@@ -1929,90 +1740,6 @@
 		"}"
 	],
 	"description": "Binary Lifting"
-	},
-	"segment with lazy": {
-	"prefix": "segment",
-	"body": [
-		"#include <bits/stdc++.h>",
-		"",
-		"#define L (2 * i)",
-		"#define R (2 * i + 1)",
-		"",
-		"using namespace std;",
-		"",
-		"typedef struct node {",
-		"    int l, r, val, lz;",
-		"} node;",
-		"",
-		"int n;",
-		"vector<int> a;",
-		"vector<node> st;",
-		"",
-		"void build(int i, int l, int r) {",
-		"    st[i].l = l, st[i].r = r;",
-		"    if (l != r) {",
-		"        int mid = (l + r) / 2;",
-		"        build(L, l, mid);",
-		"        build(R, mid + 1, r);",
-		"        st[i].val = st[L].val + st[R].val;",
-		"    }",
-		"    else st[i].val = a[l];",
-		"}",
-		"void lazy(int i) {",
-		"    st[i].val += (st[i].r - st[i].l + 1) * st[i].lz;",
-		"    if (st[i].l != st[i].r) {",
-		"        st[L].lz += st[i].lz;",
-		"        st[R].lz += st[i].lz;",
-		"    }",
-		"    st[i].lz = 0;",
-		"}",
-		"void update(int i, int l, int r, int val) {",
-		"    lazy(i);",
-		"    if (st[i].l > r || st[i].r < l) return;",
-		"    if (st[i].l >= l && st[i].r <= r) {",
-		"        st[i].lz += val;",
-		"        lazy(i);",
-		"        return;",
-		"    }",
-		"    update(L, l, r, val);",
-		"    update(R, l, r, val);",
-		"    st[i].val = st[L].val + st[R].val;",
-		"}",
-		"int query(int i, int l, int r) {",
-		"    lazy(i);",
-		"    if (st[i].l > r || st[i].r < l) return 0;",
-		"    if (st[i].l >= l && st[i].r <= r) return st[i].val;",
-		"    return query(L, l, r) + query(R, l, r);",
-		"}",
-		"",
-		"int main() {",
-		"    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);",
-		"    cin >> n;",
-		"    a.resize(n);",
-		"    for (auto &x: a) cin >> x;",
-		"    st.assign(4 * n + 5, {0, 0, 0, 0});",
-		"    build(1, 0, n - 1);",
-		"    int q;",
-		"    cin >> q;",
-		"    while (q--) {",
-		"        int type;",
-		"        cin >> type;",
-		"        if (type == 1) {",
-		"            int l, r, val;",
-		"            cin >> l >> r >> val;",
-		"            l--, r--;",
-		"            update(1, l, r, val);",
-		"        }",
-		"        else {",
-		"            int l, r;",
-		"            cin >> l >> r;",
-		"            l--, r--;",
-		"            cout << query(1, l, r) << \"\\n\";",
-		"        }",
-		"    }",
-		"}"
-	],
-	"description": "segment with lazy"
 	},
 	"Modular": {
 	"prefix": "modular",
