@@ -2807,7 +2807,7 @@
 	"sieve": {
 	"prefix": "sieve",
 	"body": [
-	"    int n;",
+	"    int n; ",
 	"    cin >> n;",
 	"    // list all primes <= n",
 	"    vector<int> prime(n + 1, 1);",
