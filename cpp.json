@@ -44,7 +44,7 @@
 		"    cout << fixed;",
 		"",
 		"    int tests = 1;",
-		"    cin >> tests; ",
+		"    // cin >> tests; ",
 		"    for (int test = 0; test < tests; test++) {",
 		"        solve(test);",
 		"    }",
