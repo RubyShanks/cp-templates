@@ -38,7 +38,7 @@
 		  "",
 		  "",
 		  "int main(void) {",
-		  "    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);",
+		  "    ios_base::sync_with_stdio(0); cin.tie(0);",
 		  "",
 		  "    $0",
 		  "}",
@@ -1427,7 +1427,7 @@
 	  "fast io": {
 		"prefix": "fast io",
 		"body": [
-		  "ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);",
+		  "ios_base::sync_with_stdio(0); cin.tie(0);",
 		  "$0"
 		],
 		"description": "fast io"
@@ -1476,7 +1476,7 @@
 	],
 	"description": "binary exponentiation"
 	},
-	  "decimal_precision":{
+	"decimal_precision":{
 		"prefix": "decimal_precision",
 		"body": [
             "cout << std::fixed << std::setprecision($0);"
