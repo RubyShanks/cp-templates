@@ -29,11 +29,11 @@
 		"typedef long double ld;",
 		"typedef pair<int, int> ii;",
 		"",
-		"// Global Variable Declaration",
+		"// Global Variables & Structures",
 		"",
 		"",
 		"",
-		"// Function Declaration",
+		"// Functions",
 		"",
 		"void solve(int test_id) {",
 		"    $0",
@@ -49,8 +49,6 @@
 		"        solve(test);",
 		"    }",
 		"}",
-		"",
-		"// Function Implementation",
 		""
 	],
 	"description": "starting template"
@@ -544,14 +542,14 @@
 		"description": "for loop"
 	  },
 	  "sort ascending": {
-		"prefix": "sorta",
+		"prefix": "sa",
 		"body": [
 		  "sort($0a.begin(), a.end());"
 		],
 		"description": "sort ascending"
 	  },
 	  "sort descending": {
-		"prefix": "sortd",
+		"prefix": "sd",
 		"body": [
 		  "sort($0a.begin(), a.end(), greater<int>());"
 		],
@@ -588,7 +586,7 @@
 	  "return 0": {
 		"prefix": "rt",
 		"body": [
-		  "return 0;$0"
+		  "return;$0"
 		],
 		"description": "return 0"
 	  },
