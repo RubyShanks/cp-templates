@@ -89,6 +89,22 @@
 		],
 		"description": "kmp pattern searching"
 	  },
+	"binary form": {
+	"prefix": "binary form",
+	"body": [
+		"template <typename T>",
+		"string binaryform(T n) {",
+		"    string s;",
+		"    while (n) {",
+		"        s += to_string(n % 2);",
+		"        n /= 2;",
+		"    }",
+		"    reverse(s.begin(), s.end());",
+		"    return s;",
+		"}"
+	],
+	"description": "binary form"
+	},
 	"Graph": {
 	"prefix": "Graph",
 	"body": [
