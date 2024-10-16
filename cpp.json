@@ -105,6 +105,16 @@
 	],
 	"description": "binary form"
 	},
+	"submasking": {
+	"prefix": "submasking",
+	"body": [
+		"for (int submask = mask; submask > 0; submask = ((submask - 1) & mask)) {",
+		"",
+		"}",
+		"int finalsubmask = 0;"
+	],
+	"description": "submasking"
+	},
 	"Graph": {
 	"prefix": "Graph",
 	"body": [
@@ -1323,14 +1333,85 @@
 		],
 		"description": "fibonacci"
 	  },
-	"freopen": {
-	"prefix": "freopen",
+	"redirect IO": {
+	"prefix": "redirect IO",
 	"body": [
 		"freopen(\"C:/Users/SANKET/Desktop/input.txt\", \"r\", stdin);   // Redirects cin to read from input.txt",
 		"freopen(\"C:/Users/SANKET/Desktop/output.txt\", \"w\", stdout); // Redirects cout to write to output.txt",
 		""
 	],
-	"description": "freopen"
+	"description": "redirect IO"
+	},
+	"generate test cases": {
+	"prefix": "generate test cases",
+	"body": [
+		"#include <bits/stdc++.h>",
+		"#include <ext/pb_ds/assoc_container.hpp>",
+		"#include <ext/pb_ds/tree_policy.hpp>",
+		"",
+		"using namespace __gnu_pbds;",
+		"template <typename T>",
+		"using ordered_set = tree<T, null_type, std::less<T>, rb_tree_tag, tree_order_statistics_node_update>;",
+		"",
+		"using namespace std;",
+		"",
+		"typedef long long ll;",
+		"typedef long double ld;",
+		"typedef pair<int, int> ii;",
+		"",
+		"// Global Variables & Structures",
+		"",
+		"",
+		"",
+		"// Functions",
+		"",
+		"void solve(int test_id) {",
+		"    freopen(\"C:/Users/SANKET/Desktop/input.txt\", \"w\", stdout); // Redirects cout to write to output.txt",
+		"    srand(time(0));",
+		"    random_device rd;",
+		"    mt19937 gen(rd());",
+		"    ",
+		"    uniform_int_distribution<int> gen_n(1, 10); // call generate(gen) to get a random number",
+		"    uniform_int_distribution<int> gen_val(1, 10);",
+		"    ",
+		"    int max_test_cases = 10;",
+		"    cout << max_test_cases << \"\\n\";",
+		"    ",
+		"    for (int test = 1; test <= 10; test++) {",
+		"        int n = gen_n(gen);",
+		"        cout << n << \"\\n\";",
+		"        for (int i = 0; i < n; i++) {",
+		"            int num;",
+		"            while ((num = gen_val(gen)) > n);",
+		"            cout << num << \" \";",
+		"        }",
+		"        cout << \"\\n\";",
+		"    }",
+		"}",
+		"",
+		"int main(void) {",
+		"    ios_base::sync_with_stdio(0); cin.tie(0);",
+		"    cout << fixed;",
+		"",
+		"    int tests = 1;",
+		"    // cin >> tests; ",
+		"    for (int test = 0; test < tests; test++) {",
+		"        solve(test);",
+		"    }",
+		"}",
+		""
+	],
+	"description": "generate test cases"
+	},
+	"random number generation": {
+	"prefix": "random number generation",
+	"body": [
+		"srand(time(0));",
+		"random_device rd;",
+		"mt19937 gen(rd());",
+		"uniform_int_distribution<int> generate(minimumvalue, maximumvalue); // call generate(gen) to get a random number"
+	],
+	"description": "random number generation"
 	},
 		"segment tree check non dec": {
 	"prefix": "segment tree check non dec",
